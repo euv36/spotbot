@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/spotbot/static/css/main.128e69cc.css",
-    "main.js": "/spotbot/static/js/main.aaff5549.js",
+    "main.css": "/spotbot/static/css/main.0c502de6.css",
+    "main.js": "/spotbot/static/js/main.eb88ecd9.js",
     "index.html": "/spotbot/index.html",
-    "main.128e69cc.css.map": "/spotbot/static/css/main.128e69cc.css.map",
-    "main.aaff5549.js.map": "/spotbot/static/js/main.aaff5549.js.map"
+    "main.0c502de6.css.map": "/spotbot/static/css/main.0c502de6.css.map",
+    "main.eb88ecd9.js.map": "/spotbot/static/js/main.eb88ecd9.js.map"
   },
   "entrypoints": [
-    "static/css/main.128e69cc.css",
-    "static/js/main.aaff5549.js"
+    "static/css/main.0c502de6.css",
+    "static/js/main.eb88ecd9.js"
   ]
 }
