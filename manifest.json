@@ -1,6 +1,7 @@
 {
 	"short_name": "SpotBot",
 	"name": "SpotBot App",
+	"description": "SpotBot - приложение для поиска свободного места.",
 	"icons": [
 		{
 			"src": "src/assets/images/logo192.png",
