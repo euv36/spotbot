@@ -53,12 +53,7 @@ const AppPage = () => {
 			const now = new Date();
 
 			fetch(serverIP + '/reserve?index=' + index)
-				.then(response => {
-					if (!response.ok) {
-						throw new Error('Ошибка при бронировании места.');
-					}
-					return response.text();
-				})
+				.then(response => response.text())
 				.then(message => {
 					alert(message);
 
@@ -69,11 +64,12 @@ const AppPage = () => {
 					});
 
 					setReservedSpaces(prev => [...prev, { id: index + 1, time: now }]);
+
 					loadMap();
 				})
 				.catch(error => {
 					console.error(error);
-					setError('Ошибка при бронировании места. Попробуйте снова.');
+					alert('Ошибка при бронировании места. Попробуйте снова.');
 				});
 		} else {
 			alert('Это место уже занято!');
@@ -174,90 +170,26 @@ const AppPage = () => {
 					Автоматизированное решение для анализа и управления свободными местами
 				</p>
 			</header>
-      
 			<div className='container'>
 				<div className='parking-area'>
-					{/* Первый ряд */}
-					<div className='row row-1'>
-						{[...Array(15)].map((_, index) => (
-							<div
-								key={index}
-								className={`space ${
-									reservedSpaces.find(reserved => reserved.id === index + 1)
-										? 'reserved'
-										: freeSpaces[index] === 0
-										? 'free'
-										: 'occupied'
-								}`}
-								id={`space-${index + 1}`}
-								onClick={() => reserveSpace(index)}
-							>
-								{index + 1}
-							</div>
-						))}
-					</div>
-
-					{/* Второй ряд */}
-					<div className='row row-2'>
-						{[...Array(12)].map((_, index) => (
-							<div
-								key={index + 15}
-								className={`space ${
-									reservedSpaces.find(reserved => reserved.id === index + 16)
-										? 'reserved'
-										: freeSpaces[index + 15] === 0
-										? 'free'
-										: 'occupied'
-								}`}
-								id={`space-${index + 16}`}
-								onClick={() => reserveSpace(index + 15)}
-							>
-								{index + 16}
-							</div>
-						))}
-					</div>
-
-					{/* Третий ряд */}
-					<div className='row row-3'>
-						{[...Array(12)].map((_, index) => (
-							<div
-								key={index + 27}
-								className={`space ${
-									reservedSpaces.find(reserved => reserved.id === index + 28)
-										? 'reserved'
-										: freeSpaces[index + 27] === 0
-										? 'free'
-										: 'occupied'
-								}`}
-								id={`space-${index + 28}`}
-								onClick={() => reserveSpace(index + 27)}
-							>
-								{index + 28}
-							</div>
-						))}
-					</div>
-
-					{/* Четвёртый ряд */}
-					<div className='row row-4'>
-						{[...Array(14)].map((_, index) => (
-							<div
-								key={index + 39}
-								className={`space ${
-									reservedSpaces.find(reserved => reserved.id === index + 40)
-										? 'reserved'
-										: freeSpaces[index + 39] === 0
-										? 'free'
-										: 'occupied'
-								}`}
-								id={`space-${index + 40}`}
-								onClick={() => reserveSpace(index + 39)}
-							>
-								{index + 40}
-							</div>
-						))}
-					</div>
+					{/* Генерация мест на основе индекса */}
+					{[...Array(53)].map((_, index) => (
+						<div
+							key={index}
+							className={`space ${
+								reservedSpaces.find(reserved => reserved.id === index + 1)
+									? 'reserved'
+									: freeSpaces[index] === 0
+									? 'free'
+									: 'occupied'
+							}`}
+							id={`space-${index + 1}`}
+							onClick={() => reserveSpace(index)}
+						>
+							{index + 1}
+						</div>
+					))}
 				</div>
-
 				<div className='info'>
 					<div>
 						<strong>Общее количество мест:</strong>

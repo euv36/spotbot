@@ -174,7 +174,6 @@ const AppPage = () => {
 					Автоматизированное решение для анализа и управления свободными местами
 				</p>
 			</header>
-      
 			<div className='container'>
 				<div className='parking-area'>
 					{/* Первый ряд */}
